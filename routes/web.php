@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\BankSystemController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\TransferController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,13 @@ use App\Http\Controllers\BankSystemController;
 |
 */
 
-Route::get('/', [BankSystemController::class,'index']);
-Route::get('/admin', [BankSystemController::class,'admin']);
-Route::get('/withdraw', [BankSystemController::class, 'withdraw']);
+Route::get('/', [HomeController::class,'index']);
+Route::get('/search', [HomeController::class, 'search']);
+Route::get('/transfer', [HomeController::class, 'transfer']);
+Route::post('/list', [HomeController::class, 'list']);
+Route::post('/store', [TransferController::class, 'store']);
+Route::get('/error', [HomeController::class, 'error']);
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

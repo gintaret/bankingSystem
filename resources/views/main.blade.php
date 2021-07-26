@@ -4,6 +4,7 @@
 <body>
 <!-- Navigation-->
 @include('_partials/nav')
+
 <!-- Page Header-->
 @include('_partials/header')
 <!-- Main Content-->
