@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AccountController;
 use App\Http\Controllers\TransferController;
 
 /*
@@ -16,13 +15,16 @@ use App\Http\Controllers\TransferController;
 |
 */
 
-Route::get('/', [HomeController::class,'index']);
-Route::get('/search', [HomeController::class, 'search']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/report', [HomeController::class, 'report']);
 Route::get('/transfer', [HomeController::class, 'transfer']);
+Route::get('/transferInside', [HomeController::class, 'transferInside']);
 Route::post('/list', [HomeController::class, 'list']);
 Route::post('/store', [TransferController::class, 'store']);
-Route::get('/error', [HomeController::class, 'error']);
+Route::post('/store1', [TransferController::class, 'store1']);
+Route::get('/error', [TransferController::class, 'error']);
+Route::get('/cancel/{id}', [TransferController::class, 'cancel']);
 
 Auth::routes();
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

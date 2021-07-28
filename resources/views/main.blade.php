@@ -7,6 +7,7 @@
 
 <!-- Page Header-->
 @include('_partials/header')
+
 <!-- Main Content-->
 <div class="container px-4 px-lg-5">
     @yield('content')

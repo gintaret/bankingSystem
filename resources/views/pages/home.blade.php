@@ -8,7 +8,7 @@
     </div>
     <div class="row">
         <div class="col-lg-12">
-            @if (\Auth::user() == true)
+            @if (Auth::user() == true)
                 <div class="card card-small mb-4 pt-3">
                     <div class="card-header border-bottom text-center">
                         <h4 class="mb-0">{{ auth()->user()->name }} {{ auth()->user()->surname }}</h4>
@@ -24,7 +24,7 @@
                             <?php $rez=DB::Table('accounts')->select('id', 'balance', 'main_account')->where('user_id', auth()->user()->id)->get()?>
                             @foreach($rez as $r)
                                 <strong class="text-muted d-block mb-2">Account:   <span>{{$r->id}}</span> </strong>
-                                <strong class="text-muted d-block mb-2">Account is:   <span>{{$r->main_account}}</span> </strong>
+                                <strong class="text-muted d-block mb-2">Account number:   <span>{{$r->main_account}}</span> </strong>
                                 <strong class=" list-group-item text-muted d-block mb-2">Balance:   <span>{{$r->balance}}</span> </strong>
                             @endforeach
                         </li>
